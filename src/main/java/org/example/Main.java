@@ -11,6 +11,7 @@ public class Main {
         person.setLastName("Olsson");
         person.setEmail("nisse@gmail.com");
 
+
         //System.out.println(person.getSummary());
 
 
@@ -22,8 +23,8 @@ public class Main {
         item.setDone(false);
         item.setCreator(person);
 
-        //System.out.println(item.toString());
-        //System.out.println(item.isOverdue());
+//        System.out.println(item);
+//        System.out.println(item.isOverdue());
 
         TodoItemTask task = new TodoItemTask();
         task.setId(100);
@@ -31,7 +32,17 @@ public class Main {
         task.setTodoItem(item);
         task.setAssignee(person);
 
-        System.out.println(task.toString());
+//        System.out.println(task);
+
+        AppUser user = new AppUser();
+        user.setUsername("Nisse-Olsson");
+        user.setPassword("1234");
+        user.setRole(AppRole.ROLE_APP_USER);
+
+        person.setCredentials(user);
+//        System.out.println("person = " + person + " person.getCredential= " + person.getCredentials());
+
 
     }
+
 }

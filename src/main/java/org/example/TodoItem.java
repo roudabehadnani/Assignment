@@ -1,6 +1,7 @@
 package org.example;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class TodoItem {
 
@@ -84,16 +85,29 @@ public class TodoItem {
         return false;
         }
 
-        @Override
-        public String toString () {
-            return "TodoItem{" +
-                    "id=" + id +
-                    ", title='" + title + '\'' +
-                    ", description='" + description + '\'' +
-                    ", deadLine=" + deadLine +
-                    ", done=" + done +
-                    ", creator=" + creator +
-                    '}';
-        }
+    @Override
+    public String toString() {
+        return "TodoItem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", deadLine=" + deadLine +
+                ", done=" + done +
+                '}';
+    }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TodoItem todoItem = (TodoItem) o;
+        return id == todoItem.id && done == todoItem.done && Objects.equals(title, todoItem.title) &&
+                Objects.equals(description, todoItem.description) && Objects.equals(deadLine, todoItem.deadLine);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, deadLine, done);
+    }
 }
