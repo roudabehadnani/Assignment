@@ -1,7 +1,8 @@
-package org.example.DAO;
+package org.example.dao;
 
 
 import org.example.model.TodoItem;
+import org.example.sequencers.TodoItemIdSequencer;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -14,6 +15,7 @@ public class TodoItemDAOCollection implements TodoItemDAO {
 
     @Override
     public TodoItem persist(TodoItem todoItem) {
+        todoItem.setId(TodoItemIdSequencer.nextId());
         state.put(todoItem.getId(), todoItem);
         return todoItem;
     }

@@ -7,12 +7,28 @@ public class TodoItem {
 
     //Fields
     private int id;
-    String title;
-    String description;
-    LocalDate deadLine;
+    private String title;
+    private String description;
+    private LocalDate deadLine;
     boolean done;
-    Person creator;
+    private Person creator;
 
+    public TodoItem() {
+    }
+
+    public TodoItem(String title, String description, LocalDate deadLine, Person creator) {
+        setTitle(title);
+        this.description = description;
+        setDeadLine(deadLine);
+        this.creator = creator;
+    }
+
+    //chain constructor
+    public TodoItem(int id, String title, String description, LocalDate deadLine, Person creator) {
+        this(title,description, deadLine,creator);
+        this.id = id;
+
+    }
 
     //Getters & Setters
 
@@ -48,7 +64,7 @@ public class TodoItem {
     }
 
     public void setDeadLine(LocalDate deadLine) {
-        if (deadLine == null ){
+        if (deadLine == null){
             throw new IllegalArgumentException("Not allowed");
         }
         this.deadLine = deadLine;

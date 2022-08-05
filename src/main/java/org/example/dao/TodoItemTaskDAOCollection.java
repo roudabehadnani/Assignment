@@ -1,6 +1,7 @@
-package org.example.DAO;
+package org.example.dao;
 
 import org.example.model.TodoItemTask;
+import org.example.sequencers.TodoItemTaskIdSequencer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,6 +14,7 @@ public class TodoItemTaskDAOCollection implements TodoItemTaskDAO {
 
     @Override
     public TodoItemTask persist(TodoItemTask todoItemTask) {
+        todoItemTask.setId(TodoItemTaskIdSequencer.nextId());
         state.put(todoItemTask.getId(), todoItemTask);
         return todoItemTask;
     }

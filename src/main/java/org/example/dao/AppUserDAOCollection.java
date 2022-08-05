@@ -1,4 +1,4 @@
-package org.example.DAO;
+package org.example.dao;
 
 
 import org.example.model.AppUser;
@@ -28,6 +28,7 @@ public class AppUserDAOCollection implements AppUserDAO {
 
     @Override
     public void remove(String username) {
+
         state.remove(username);
         System.out.println("After remove username" + state);
 

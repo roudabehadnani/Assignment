@@ -11,6 +11,21 @@ public class Person {
     private String email;
     private AppUser credentials;
 
+    public Person() {
+    }
+
+    public Person(String firstName, String lastName, String email) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setEmail(email);
+    }
+
+    //chain constructor
+    public Person(int id, String firstName, String lastName, String email) {
+        this(firstName, lastName, email);
+        this.id = id;
+
+    }
 
     //Getters & Setters
 
@@ -61,6 +76,9 @@ public class Person {
     }
 
     public void setCredentials(AppUser credentials) {
+        if (credentials == null) {
+            throw new IllegalArgumentException("not allowed");
+        }
         this.credentials = credentials;
     }
 

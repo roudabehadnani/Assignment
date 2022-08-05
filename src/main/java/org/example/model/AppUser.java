@@ -9,6 +9,11 @@ public class AppUser {
     private AppRole role;
 
 
+    public AppUser(String username, String password, AppRole role) {
+        setUsername(username);
+        setPassword(password);
+        setRole(role);
+    }
 
     public String getUsername() {
         return username;
@@ -37,7 +42,7 @@ public class AppUser {
     }
 
     public void setRole(AppRole role) {
-        if (role == null || password.trim().equals("")) {
+        if (role == null ) {
             throw new IllegalArgumentException("not allowed");
         }
         this.role = role;

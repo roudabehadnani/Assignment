@@ -10,6 +10,20 @@ public class TodoItemTask {
     private Person assignee;
 
 
+    public TodoItemTask() {
+    }
+
+    public TodoItemTask(TodoItem todoItem, Person assignee) {
+        setTodoItem(todoItem);
+        setAssignee(assignee);
+    }
+
+    public TodoItemTask(int id, TodoItem todoItem, Person assignee) {
+        this(todoItem, assignee);
+        this.id = id;
+
+    }
+
     //Getters & setters
 
     public int getId() {

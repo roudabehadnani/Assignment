@@ -6,8 +6,7 @@ public class PersonIdSequencer {
 
 
     public static int nextId(){
-        currentId++;
-        return currentId;
+        return  ++currentId;
     }
 
     public static int getCurrentId() {
